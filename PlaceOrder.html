@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gift Card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <style>
+        .jumbotron {
+            background-image: url('https://media.istockphoto.com/photos/beautiful-flowers-on-white-wooden-background-picture-id1021497884');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: rgb(236, 58, 117);
+            text-shadow: white 0.2em 0.2em 0.2em;
+            
+        }
+        .navbar {
+            margin-bottom: 1;
+            background-color: lightpink;
+            text-decoration: rgb(128, 66, 187);
+            font-weight: 600;
+            
+        }
+        .field-form {
+            border: 2px solid rgba(163, 160, 160, 0.671);
+            padding: 2rem;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="./assets/css/placeorder.css">
+</head>
+<body>
+     <!-- <div class="topleft rounded-circle">
+        <img src="file:///C:/Users/Lenovo/Downloads/logo.svg" width="100px" height="100px">
+    </div>  -->
+    <div class="jumbotron text-spring-warmth gradient row" style="margin-bottom:0">
+         <div class="col-sm-3">
+            <img class="rounded-circle" src="./assets/logo.svg" width="60%">
+        </div> 
+        <div class="col-sm-9 text-center">
+            <h1 class="display-2" >Gift Card</h1>
+            <p class="h3">Exclusive Gift Cards For Loved Ones..</p> 
+        </div>
+     
+    </div>
+    <nav class="navbar navbar-expand-md  navbar  d-none d-md-block">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon text-dark"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav justify-content-around w-100 text-center">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color:purple;font-size:20px; " href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px; " href="#">Place Gift Card Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px;" href="viewOrders.html">View Gift Card Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  style="color:purple;font-size:20px;" href="contactus.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid row">
+        <aside class="col-sm-3">
+            <span class="navbar-toggler-icon"></span>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px;" href="Home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px;" href="#">Place Gift Card Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px;" href="viewOrders.html">View Gift Card Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:purple;font-size:20px;" href="contactus.html">Contact Us</a>
+                </li>
+            </ul>
+            <hr class="d-none">
+        </aside>
+        
+        <main>
+            <form action="">
+                <div class="container-fluid">
+                    <h2 class="display-4 mt-5 mb-5" style="color:purple;">Place your order</h2>
+                    <div class="form-row">
+                        <label class="form-label">Gift Card Amount: </label>
+                        <div class="form-group col">
+                            <input type="number" min="0" class="form-control mb-1" id="amountINR" placeholder="Rupees"
+                                name="amountINR" required autofocus>
+                            <label for="amountINR">INR</label>
+                        </div>:
+                        <div class="form-group col">
+                            <input type="number" class="form-control" min="0" max="100" id="amountPaise" placeholder="Paise"
+                                name="amountPaise" onblur="limitPaise(this)" required>
+                            <label for="amountPaise">Paise</label>
+                        </div>
+                    </div>
+                    <span class="text-danger text-sm row" id="limitError" style="display: none;">Gift card amount paise
+                        field needs t be in the limits of 0 to 100</span>
+                    <div class="form-row">
+                        <label class="form-label">Recipient Name: </label>
+                        <div class="form-group col">
+                            <input type="text" class="form-control" id="rFirstName" oninput="checkOnlyText(this)"
+                                placeholder="First Name" name="amountINR" required>
+                            <label for="amountINR">First Name</label>
+                            <label class="text-danger" style="display: none;" id="rFirstNameError">Name cannot have
+                                numericals or cannot be empty</label>
+                        </div>
+    ​
+                        <div class="form-group col">
+                            <input type="text" class="form-control" id="rLastName" placeholder="Last Name" oninput="checkOnlyText(this)"
+                                placeholder="" name="rLastName" required>
+                            <label for="rLastName">Last Name</label>
+                            <label class="text-danger" style="display: none;" id="rLastNameError">Name cannot have
+                                numericals or cannot be empty</label>
+                        </div>
+                    </div>
+    ​
+                    <div class="form-group">
+                        <div>
+                            <fieldset class="field-form">
+                                <legend class="pl-5">
+                                    Shipping Address
+                                </legend>
+                                <input type="text" class="form-control" id="streetAddress" placeholder="Enter your address"
+                                    name="addr" required>
+                                <label for="streetAddress">Street Address</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Enter City" id="city" required>
+                                        <label for="city">City</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Enter State" id="state"
+                                            required>
+                                        <label for="state">State</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <select class="custom-select" id="country">
+                                            <option selected>Country</option>
+                                            <option value="India">India</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="New Zealand">New Zealand</option>
+                                        </select>
+                                        <label for="country">Country</label>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" minlength="6" maxlength="6" class="form-control"
+                                            placeholder="Enter Pincode" id="pincode">
+                                        <label for="pincode">Pincode</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="name" class="form-label mr-2"> Buyer's Name: </label>
+                        <div class="form-group col">
+                            <input type="text" class="form-control" placeholder="First Name" required id="bFirstName"
+                                oninput="checkOnlyText(this)">
+                            <label for="bFirstName">First Name</label>
+                            <label class="text-danger" style="display: none;" id="bFirstNameError">Name cannot have
+                                numericals or cannot be empty</label>
+                        </div>
+                        <div class="form-group col">
+                            <input type="text" class="form-control" placeholder="Last Name" id="bLastName"
+                                oninput="checkOnlyText(this)" required>
+                            <label for="">Last Name</label>
+                            <label class="text-danger" style="display: none;" id="bLastNameError">Name cannot have
+                                numericals or cannot be empty</label>
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <label for="phoneNumber" class="mr-2">Phone Number: </b></label>
+                        <input type="text" class="form-control limit-size" size="2" value="+91" readonly="readonly"
+                            id="phoneNumCode" />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit1" size="1" maxlength="1"
+                            min="1" max="9" onkeydown="phoneDigit1(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit2" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit3" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit4" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit5" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit6" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit7" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit8" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit9" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)" required />&nbsp;
+                        <input type="text" class="form-control limit-size" id="phoneNumDigit10" size="1" maxlength="1"
+                            min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)"
+                            required />&nbsp;<br />
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+                    </div>
+                    <button type="submit" id="placeOrderBtn" class="btn btn-primary btn-block mb-3" onclick="submitForm()">Place Order</button>
+                </div>
+            </form>
+        </main>
+       
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+Message Abhigna lahiri
+
+
