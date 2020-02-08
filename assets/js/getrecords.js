@@ -1,7 +1,6 @@
 let tablearray = JSON.parse(localStorage.getItem("giftRecords")) || [];
 
 for (i = 0; i < tablearray.length; i++) {
-  console.log("kk");
   let tr = document.createElement("tr");
   let td1 = document.createElement("td");
   let td2 = document.createElement("td");

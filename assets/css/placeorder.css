@@ -8,3 +8,7 @@
 .limit-size {
     width: 1em;
 }
+
+.form-inline{
+    flex-flow: row nowrap;
+}

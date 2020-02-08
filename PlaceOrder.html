@@ -89,7 +89,7 @@
         </aside>
         
         <main>
-            <form action="">
+            <form onsubmit="submitForm()"">
                 <div class="container-fluid">
                     <h2 class="display-4 mt-5 mb-5" style="color:purple;">Place your order</h2>
                     <div class="form-row">
@@ -158,8 +158,9 @@
                                     </div>
                                     <div class="col">
                                         <input type="number" minlength="6" maxlength="6" class="form-control"
-                                            placeholder="Enter Pincode" id="pincode">
+                                            placeholder="Enter Pincode" id="pincode" min="100000" max="999999" required>
                                         <label for="pincode">Pincode</label>
+                                        <label class="text-danger text-small" id = "pinError" style="display: none;">Pin code must have 6 digits</label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -182,9 +183,12 @@
                                 numericals or cannot be empty</label>
                         </div>
                     </div>
-                    <div class="form-inline">
+                    <div class="form-group">
                         <label for="phoneNumber" class="mr-2">Phone Number: </b></label>
-                        <input type="text" class="form-control limit-size" size="2" value="+91" readonly="readonly"
+                        <div class="input-group-prepend">
+
+                        
+                        <input type="text" class="form-control limit-size d-none d-md-block" size="2" value="+91" readonly="readonly"
                             id="phoneNumCode" />&nbsp;
                         <input type="text" class="form-control limit-size" id="phoneNumDigit1" size="1" maxlength="1"
                             min="1" max="9" onkeydown="phoneDigit1(event)" oninput="gotoNextDigit(this)" required />&nbsp;
@@ -207,32 +211,22 @@
                         <input type="text" class="form-control limit-size" id="phoneNumDigit10" size="1" maxlength="1"
                             min="0" max="9" onkeydown="phoneDigits(event)" oninput="gotoNextDigit(this)"
                             required />&nbsp;<br />
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
                     </div>
-                    <button type="submit" id="placeOrderBtn" class="btn btn-primary btn-block mb-3" onclick="submitForm()">Place Order</button>
+                    <button type="submit" id="placeOrderBtn" class="btn btn-danger btn-block mb-3">Place Order</button>
                 </div>
             </form>
         </main>
        
     </div>
+    <script src="./assets/js/validation.js"></script>
 </body>
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-Message Abhigna lahiri
 
 

@@ -107,8 +107,6 @@ function submitForm() {
         email : email
     }
 
-    console.log(record);
-
     let array = JSON.parse(localStorage.getItem("giftRecords")) || [];
     array.push(record);
     localStorage.setItem("giftRecords",JSON.stringify(array))
